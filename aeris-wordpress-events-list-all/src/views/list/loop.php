@@ -30,7 +30,7 @@ $new_events = tribe_get_events(array(
 		'posts_per_page'=>5,
 		'start_date'=>'01 '.$current_month.' 2017',
 ));
-$allEvents = array_merge($past_events,$new_events);
+$allEvents = array_merge($new_events,$past_events);
 $allEvents= array_unique($allEvents, SORT_REGULAR);
 
 ?>
