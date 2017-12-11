@@ -30,14 +30,27 @@ $new_events = tribe_get_events(array(
 		'posts_per_page'=>5,
 		'start_date'=>'01 '.$current_month.' 2017',
 ));
-$allEvents = array_merge($new_events,$past_events);
-$allEvents= array_unique($allEvents, SORT_REGULAR);
+
+$allEvents = array();
+
+
+foreach($past_events as $event){
+	array_push($allEvents,$event);
+	
+}
+foreach($new_events as $event){
+	array_push($allEvents,$event);
+	
+}
+
+$reversed = array_reverse($allEvents);
+
 
 ?>
 
 <div class="tribe-events-loop">
 
-	<?php foreach ( $allEvents as $event) :  ?>
+	<?php foreach ( $reversed as $event) :  ?>
 
 		<!-- Month / Year Headers -->
 		<?php tribe_events_set_the_date_header($event); ?>
