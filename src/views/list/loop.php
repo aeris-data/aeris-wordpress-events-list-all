@@ -75,7 +75,7 @@ $reversed = array_reverse($allEvents);
 			?>
 			<h2 class="tribe-events-list-event-title">
 			<a class="tribe-event-url" href="<?php echo $event->guid; ?>" title="<?php echo $event->post_title; ?>" rel="bookmark">
-			<?php echo $event->post_title; ?>	</a>
+			Gewex UTCC-PROES meeting <?php echo $event->post_title; ?>	</a>
 			</h2>
 		</div>
 
