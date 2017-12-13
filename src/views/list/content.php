@@ -30,9 +30,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<h2 class="tribe-events-page-title">Meetings</h2>
 	<?php do_action( 'tribe_events_after_the_title' ); ?>
 
-	<!-- Notices -->
-	<?php tribe_the_notices() ?>
-
 	<!-- List Header -->
 	<?php do_action( 'tribe_events_before_header' ); ?>
 	<div id="tribe-events-header" <?php tribe_events_the_header_attributes() ?>>
