@@ -2,7 +2,7 @@
 /**
 * Plugin Name: aeris-wordpress-events-list-all
 * Description: The Events Calendar is a carefully crafted, extensible plugin that lets you easily share your events. Beautiful. Solid. Awesome.
-* Version: 0.1.0
+* Version: 0.1.1
 * GitHub Plugin URI: aeris-data/aeris-wordpress-events-list-all
 * Author: Modern Tribe, Inc.
 * Author URI: http://m.tri.be/1x
