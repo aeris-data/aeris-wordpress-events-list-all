@@ -1,14 +1,14 @@
 <?php
-/*
-Plugin Name: Aeris Events Calendar
-Description: The Events Calendar is a carefully crafted, extensible plugin that lets you easily share your events. Beautiful. Solid. Awesome.
-Version: 0.1.0
-GitHub Plugin URI: aeris-data/aeris-wordpress-events-list-all
-Author: Modern Tribe, Inc.
-Author URI: http://m.tri.be/1x
-Text Domain: the-events-calendar
-License: GPLv2 or later
-*/
+/**
+* Plugin Name: aeris-wordpress-events-list-all
+* Description: The Events Calendar is a carefully crafted, extensible plugin that lets you easily share your events. Beautiful. Solid. Awesome.
+* Version: 0.1.0
+* GitHub Plugin URI: aeris-data/aeris-wordpress-events-list-all
+* Author: Modern Tribe, Inc.
+* Author URI: http://m.tri.be/1x
+* Text Domain: the-events-calendar
+* License: GPLv2 or later
+**/
 
 /*
 Copyright 2009-2012 by Modern Tribe Inc and the contributors
