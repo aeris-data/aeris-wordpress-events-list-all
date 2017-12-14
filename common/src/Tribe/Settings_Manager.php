@@ -26,6 +26,8 @@ class Tribe__Settings_Manager {
 		add_action( '_admin_menu', array( $this, 'init_options' ) );
 
 		add_action( 'admin_menu', array( $this, 'add_help_admin_menu_item' ), 50 );
+		add_action( 'admin_menu', array( $this, 'add_doc_admin_menu_item' ), 50 );
+		
 		add_action( 'tribe_settings_do_tabs', array( $this, 'do_setting_tabs' ) );
 		add_action( 'tribe_settings_do_tabs', array( $this, 'do_network_settings_tab' ), 400 );
 		add_action( 'tribe_settings_validate_tab_network', array( $this, 'save_all_tabs_hidden' ) );
@@ -263,7 +265,15 @@ class Tribe__Settings_Manager {
 	public function do_help_tab() {
 		include_once Tribe__Main::instance()->plugin_path . 'src/admin-views/tribe-options-help.php';
 	}
-
+	
+	/**
+	 * Create the help tab
+	 */
+	public function do_doc_tab() {
+		include_once Tribe__Main::instance()->plugin_path . 'src/admin-views/tribe-options-documentation.php';
+	}
+	
+	
 	/**
 	 * Add help menu item to the admin (unless blocked via network admin settings).
 	 *
@@ -282,6 +292,19 @@ class Tribe__Settings_Manager {
 		add_submenu_page( $parent, $title, $title, 'manage_options', $slug, array( $this, 'do_help_tab' ) );
 	}
 
+	
+	public function add_doc_admin_menu_item() {
+		$hidden_settings_tabs = self::get_network_option( 'hideSettingsTabs', array() );
+		if ( in_array( 'doc', $hidden_settings_tabs ) ) {
+			return;
+		}
+		
+		$parent = class_exists( 'Tribe__Events__Main' ) ? Tribe__Settings::$parent_page : Tribe__Settings::$parent_slug;
+		$title  = esc_html__( 'Documentation', 'tribe-common' );
+		$slug   = 'events-documentation';
+		
+		add_submenu_page( $parent, $title, $title, 'manage_options', $slug, array( $this, 'do_doc_tab' ) );
+	}
 	/**
 	 * Tries to discover if licensable addons are activated on the same site.
 	 *

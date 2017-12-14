@@ -244,8 +244,46 @@ if ( ! class_exists( 'Tribe__Settings' ) ) {
 					self::$parent_slug,
 					array( $this, 'generatePage' )
 				);
+				
+				add_submenu_page(
+						$this->get_parent_slug(),
+						'Events documentation',
+					    'Readme update',
+						'manage_options',
+						self::$parent_slug,
+						
+						array($this,'gewex_utcc_create_doc_options')
+						);
 			}
 		}
+		function gewex_utcc_create_doc_options() {
+			
+			add_action( 'admin_enqueue_scripts', 'gewex_load_script' );
+			
+			global $markdown_content;
+			$markdown_content = file_get_contents (plugin_dir_url( dirname(dirname(dirname(__FILE__))) ). '/readme.md');
+			
+			?>
+	<div class='content'>
+		
+		<?php
+		
+		echo $markdown_content;
+		
+		?>
+		</div>
+	<?php
+	}
+	
+	// load admin scripts
+	function gewex_load_script() {
+		wp_enqueue_script ( 'markdown_showdown', plugin_dir_url ( __FILE__ ) . '/js/showdown.min.js' );
+		wp_enqueue_script ( 'markdown_parser', plugin_dir_url ( __FILE__ ) . '/js/admin_gewex.js' );
+	}
+
+	
+		
+		
 
 		/**
 		 * create the network options page
